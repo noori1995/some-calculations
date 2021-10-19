@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: darkslategrey;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 520px;
+            margin: auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    FINISH
+</body>
+<script>
+    isThisThreeNumberEqualRepeater();
+    isThisJobSuitableRepeater();
+    swapTwoNumbersRepeater();
+    partitioningRepeater();
+    evenNumberCountToZeroRepeater ();
+    factorialCountRepeater();
+    digitsCountRepeater();
+    secondsToStandardFormatRepeater();
+    primeNumberRepeater ();
+    num10();
+    accountDetails();
+    printLozengeRepeater();
+
+
+
+    function isNumber(input) {
+        if (parseFloat(input) == input)
+            return true;
+        else {
+            alert(`NOT VALID : NOT A NUMBER`)
+            return false;
+        }
+    }
+    function isPositive(input) {
+        if (parseFloat(input) >= 0)
+            return true;
+        else {
+            alert(`NOT VALID : NOT POSITIVE`)
+            return false;
+        }
+    }
+    function isInteger(input) {
+        if (parseFloat(input) % 1 == 0)
+            return true;
+        else {
+            alert(`NOT VALID : NOT AN INTEGER`)
+            return false;
+        }
+    }
+    function roundIt(input) {
+        let roundNumber = parseFloat(input) - parseFloat(input) % 1;
+        return roundNumber;
+    }
+    function isEven(input) {
+        if (parseInt(input) % 2 == 0)
+            return true;
+        else {
+            alert(`NOT VALID : NOT AN EVEN NUMBER`)
+            return false;
+        }
+    }
+    function isOdd(input) {
+        if (parseInt(input) % 2 != 0)
+            return true;
+        else {
+            alert(`NOT VALID : NOT AN ODD NUMBER`)
+            return false;
+        }
+    }
+    function positiveNumberCountToZero(input, i = 1) {
+        input = parseInt(input);
+        let string = " ";
+        for (let j = input; j >= 0; j -= i) {
+            string = string + j.toString() + "  ";
+        }
+        return string;
+    }
+    function factorial(input) {
+        input = parseInt(input);
+        let sum = 1;
+        for (let i = 2; i <= input; i++)
+            sum *= i;
+        sum = sum.toString();
+        return sum;
+    }
+    function digits(input) {
+        let number = 0;
+        number = input.length;
+        return number;
+    }
+    function secondsToStandard(input) {
+        input = parseInt(input);
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;
+        while (input >= 3600) {
+            input -= 3600;
+            hours++;
+        }
+        while (input >= 60) {
+            input -= 60;
+            minutes++;
+        }
+        seconds = input;
+        string = "This is " + hours.toString() + " hours and " + minutes.toString() + " minutes and " + seconds + " seconds";
+        return string;
+    }
+    function isPrimeNumber(input) {
+        input = parseInt(input);
+        let flag = true;
+        let string;
+        for (let i = 2; i < input; i++)
+            if (input % i == 0)
+                flag = false;
+        flag ? string = `It's a "PRIME NUMBER"` : string = `It's a "COMPOSITE NUMBER"`;
+        return string;
+    }
+    function isPGCQ(input) {
+        if (input == `p` || input == `g` || input == `c` || input == `q`)
+            return true;
+        else {
+            alert(`NOT VALID CHARACTER\nONLY: p g c q`)
+            return false;
+        }
+    }
+    function isCharacter(input) {
+        if (parseFloat(input) == input) {
+            alert(`NOT VALID : It's a number`)
+            return false;
+        }
+        else
+            return true;
+    }
+    function power(input) {
+        input = input ** input;
+        input = input.toString();
+        return input;
+    }
+    function switchFunction() {
+        while (true) {
+            let number;
+            let command;
+            do { command = prompt(`Enter the character \np:power\ng:factorail\nc:Prime Number\nq:quit`).toLowerCase() }
+            while ((!isDefined(command) || !isCharacter(command) || !isPGCQ(command)));
+            if (command != `q`) {
+                do { number = prompt(`Enter the number `) }
+                while ((!isNumber(number) || !isPositive(number)) || !isInteger(number));
+                number = parseInt(number);
+            }
+            switch (command) {
+                case `p`:
+                    alert(power(number));
+                    break;
+                case `g`:
+                    alert(factorial(number));
+                    break;
+                case `c`:
+                    alert(isPrimeNumber(number));
+                    break;
+                case `q`:
+                    alert(`Finished`);
+                    return;
+                    break;
+                default:
+                    alert(`error`);
+                    break;
+            }
+        }
+    }
+    function isFLBSQ(input) {
+        if (input == `f` || input == `l` || input == `b` || input == `s` || input == `q`)
+            return true;
+        else {
+            alert(`NOT VALID CHARACTER\nONLY: F L B S Q`)
+            return false;
+        }
+    }
+    function switchFunction2() {
+        let firstname;
+        let lastname;
+        let accountNumber;
+        while (true) {
+            let command;
+            do { command = prompt(`Enter the character :\n\n'F':enter firstname\n'L':enter lastname\n'B':enter account number\n'S':show details\n'Q':Quit`).toLowerCase() }
+            while ((!isDefined(command) || !isCharacter(command) || !isFLBSQ(command)));
+            switch (command) {
+                case `f`:
+                    firstname = setFirstName();
+                    alert(`"${firstname}" setted as your firstname`);
+                    break;
+                case `l`:
+                    lastname = setLastName();
+                    alert(`"${lastname}" setted as your lastname`);
+                    break;
+                case `b`:
+                    accountNumber = setAccountNumber();
+                    alert(`"${accountNumber}" setted as your account number`);
+                    break;
+                case `s`:
+                    alert(getAccountDetails(firstname, lastname, accountNumber));
+                    break;
+                case `q`:
+                    alert(`Finished`);
+                    return;
+                    break;
+                default:
+                    alert(`error`);
+                    break;
+            }
+        }
+    }
+    function setFirstName() {
+        let firstname;
+        do { firstname = prompt(`Enter firstname `) }
+        while (!isCharacter(firstname))
+        return firstname;
+    }
+    function setLastName() {
+        let lastname;
+        do { lastname = prompt(`Enter lastname `) }
+        while (!isCharacter(lastname))
+        return lastname;
+    }
+    function setAccountNumber() {
+        let theAccountNumber;
+        do { theAccountNumber = prompt(`Enter your account number `) }
+        while (!isNumber(theAccountNumber) || !isPositive(theAccountNumber) || !isInteger(theAccountNumber) || !is16DigitNumber(theAccountNumber))
+        return theAccountNumber;
+    }
+    function is16DigitNumber(input) {
+        if (digits(input) == 16)
+            return true;
+        else {
+            alert(`only 16 digits numbers are valid`);
+            return false;
+        }
+    }
+    function getAccountDetails(firstname, lastname, accountNumber) {
+        if (!isDefined(firstname) || !isDefined(lastname) || !isDefined(accountNumber))
+            return `all the parameters should define first !`;
+        else
+            return `firstname : ${firstname}\nlastname : ${lastname}\naccount number : ${accountNumber}`;
+    }
+    function isDefined(input) {
+        const result = (input !== undefined) ? true : false;
+        return result;
+    }
+    function isSizeOne(input) {
+        if (input.length == 1)
+            return true;
+        else {
+            alert(`ONLY ONE CHARACTER IS VALID`)
+            return false;
+        }
+    }
+    function isSame(first, second) {
+        if (first == second) {
+
+            alert(`YOU CANT ENTER ${second} FOR BOTH LOSENGE AND NEIGHBOR SPACE`)
+            return true;
+        }
+        else
+            return false;
+    }
+    function printLosengeFunction() {
+        let number;
+        let str = ``;
+        let diamond = `*`;
+        let space = `-`;
+        let spaceInside = `+`;
+        let wantEmptyLosenge;
+        do { number = prompt(`Enter an odd number `) }
+        while ((!isNumber(number) || !isPositive(number)) || (!isInteger(number) || !isDefined(number)) || !isOdd(number));
+        const wantACustomLosenge = confirm(`Do you want a custom losenge ?`)
+        if (wantACustomLosenge) {
+            do { diamond = prompt(`Enter a character for losenge `) }
+            while (!isSizeOne(diamond) || !isDefined(diamond));
+            do { space = prompt(`Enter a character for free space `) }
+            while (!isSizeOne(space) || !isDefined(space) || isSame(diamond, space));
+            wantEmptyLosenge = confirm(`Do you want a empty losenge ?`);
+        }
+        if(wantEmptyLosenge){
+            do { spaceInside = prompt(`Enter a character for empty space `) }
+            while ((!isSizeOne(spaceInside) || !isDefined(spaceInside)) || isSame(diamond, spaceInside));
+        }
+        number = parseInt(number);
+        const num = (number + 1) / 2;
+
+        for (let line = 0; line < number; ++line) {
+            for (let j = 0; j < number; ++j){
+                if (wantEmptyLosenge) {
+                    if (line < num) {
+                        if ((j == num + line - 1) || (j == num - line - 1))
+                            str += diamond;
+                        else if ((j < num + line - 1) && (j > num - line - 1))
+                            str += spaceInside;
+                        else
+                            str += space;
+                    }
+                    else {
+                        if ((j == number + num - line - 2) || (j == line - num + 1))
+                            str += diamond;
+                        else if ((j < number + num - line - 2) && (j > line - num + 1))
+                            str += spaceInside;
+                        else
+                            str += space;
+                    }
+                } 
+                else {
+                    if (line < num) {
+                        if ((j <= num + line - 1) && (j >= num - line - 1))
+                            str += diamond;
+                        else
+                            str += space;
+                    }
+                    else {
+                        if ((j <= number + num - line - 2) && (j >= line - num + 1))
+                            str += diamond;
+                        else
+                            str += space;
+
+                    }
+                }
+            }
+            str += `\n`;
+        }
+        console.log(str);
+        return str;
+    }
+    // `--*--\n-***-\n*****\n-***-\n--*--`
+
+
+
+    //--------------------------------------------------------------------------------------------------------------
+    //EX.1
+    function isThisThreeNumberEqual(num1, num2, num3) {
+        alert(`1: Is this three number equal ? `);
+        let equal;
+        let firstNumber;
+        let secondNumber;
+        let thirdNumber;
+        do { firstNumber = prompt(`Enter the first number `) }
+        while (!isNumber(firstNumber))
+        do { secondNumber = prompt(`Enter the second number `) }
+        while (!isNumber(secondNumber))
+        do { thirdNumber = prompt(`Enter the third number `) }
+        while (!isNumber(thirdNumber))
+        parseFloat(firstNumber) == parseFloat(secondNumber) && parseFloat(secondNumber) == parseFloat(thirdNumber) ? equal = true : equal = false;
+        equal ? alert(`This three number are "EQUAL"`) : alert(`This three number are "NOT EQUAL"`);
+    }
+    function isThisThreeNumberEqualRepeater() {
+        let repeat;
+        do {
+            isThisThreeNumberEqual();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.2
+    function isThisJobSuitable() {
+        alert(`2: Is this job suitable ?`);
+        let salary;
+        let insurance;
+        let isSuitable;
+        do { salary = prompt(`Enter the salary (million toman):`) }
+        while (!isNumber(salary) || !isPositive(salary))
+        insurance = confirm(`Do You want insurance?`);
+        (salary >= 23) || (salary <= 23 && salary >= 12) && insurance ? isSuitable = true : isSuitable = false;
+        isSuitable ? alert(`This job is suitable for you :)`) : alert(`This job is not suitable for you :(`);
+    }
+    function isThisJobSuitableRepeater() {
+        let repeat;
+        do {
+            isThisJobSuitable();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.3
+    function swapTwoNumbers(num1, num2, num3) {
+        alert(`3: swap two numbers ? `);
+        let dommy;
+        let firstNumber;
+        let secondNumber;
+        do { firstNumber = prompt(`Enter the first number `) }
+        while (!isNumber(firstNumber))
+        do { secondNumber = prompt(`Enter the second number `) }
+        while (!isNumber(secondNumber))
+        dommy = firstNumber;
+        firstNumber = secondNumber;
+        secondNumber = dommy;
+        alert(`${firstNumber} Vs ${secondNumber}`);
+    }
+    function swapTwoNumbersRepeater() {
+        let repeat;
+        do {
+            swapTwoNumbers();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.4
+    function partitioning() {
+        alert(`4: partitioning numbers `);
+        let output;
+        let Number;
+        do { Number = prompt(`Enter a positive number`) }
+        while (!isNumber(Number) || !isPositive(Number))
+        if (parseFloat(Number) <= 50)
+            output = 1;
+        else if (parseFloat(Number) <= 100)
+            output = 2;
+        else if (parseFloat(Number) <= 200)
+            output = 3;
+        else
+            output = 4;
+        alert(`output number is : ${output}`);
+
+    }
+    function partitioningRepeater() {
+        let repeat;
+        do {
+            partitioning();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.5
+    function evenNumberCountToZero() {
+        alert(`5: count even numbers to zero `);
+        let Number;
+        do { Number = prompt(`Enter the number `) }
+        while ((!isNumber(Number) || !isPositive(Number)) || !isEven(Number) || !isInteger)
+        alert(positiveNumberCountToZero(Number, 2));
+
+    }
+    function evenNumberCountToZeroRepeater() {
+        let repeat;
+        do {
+            evenNumberCountToZero();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.6
+    function factorialCount() {
+        alert(`6: counting factorail `);
+        let Number;
+        do { Number = prompt(`Enter the number `) }
+        while ((!isNumber(Number) || !isPositive(Number)) || !isInteger(Number))
+        alert(factorial(Number));
+
+    }
+    function factorialCountRepeater() {
+        let repeat;
+        do {
+            factorialCount();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.7
+    function digitsCount() {
+        alert(`7: Digits count `);
+        let number;
+        do { number = prompt(`Enter the number `) }
+        while ((!isNumber(number) || !isPositive(number)) || !isInteger(number));
+        number = "Have " + digits(number).toString() + " digits";
+        alert(number);
+    }
+    function digitsCountRepeater() {
+        let repeat;
+        do {
+            digitsCount();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.8
+    function secondsToStandardFormat() {
+        alert(`8: Seconds to standard format `);
+        let number;
+        do { number = prompt(`Enter the seconds `) }
+        while ((!isNumber(number) || !isPositive(number)) || !isInteger(number));
+        alert(secondsToStandard(number));
+    }
+    function secondsToStandardFormatRepeater() {
+        let repeat;
+        do {
+            secondsToStandardFormat();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.9
+    function primeNumber() {
+        alert(`9: Prime number detoctor! `);
+        let number;
+        do { number = prompt(`Enter the number `) }
+        while ((!isNumber(number) || !isPositive(number)) || !isInteger(number));
+        alert(isPrimeNumber(number));
+    }
+    function primeNumberRepeater() {
+        let repeat;
+        do {
+            primeNumber();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.10
+    function num10() {
+        alert(`10: Some calculations`);
+        switchFunction();
+    }
+    function num10Repeater() {
+        let repeat;
+        do {
+            num10();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.11
+    function accountDetails() {
+        alert(`11: account details `);
+        switchFunction2();
+    }
+    function accountDetailsRepeater() {
+        let repeat;
+        do {
+            accountDetails();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+    //EX.12
+    function printLozenge() {
+        alert(`12: print a costum lozenge `);
+        alert(printLosengeFunction());
+    }
+    function printLozengeRepeater() {
+        let repeat;
+        do {
+            printLozenge();
+            repeat = confirm(`for try again press "OK"\nfor next press "CANCEL"`)
+        } while (repeat == true);
+    }
+</script>
+
+</html>
