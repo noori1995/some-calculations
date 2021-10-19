@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: darkslategrey;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+        }
+
+        .mainDivs {
+            width: 200px;
+            height: 160px;
+            color: burlywood;
+            background-color: black;
+            margin: auto;
+            font-size: 100px;
+            padding: 30px;
+            text-align: center;
+
+
+
+        }
+
+        .headerDiv {
+            background-color: rgb(72, 187, 187);
+            margin: auto;
+            width: fit-content;
+        }
+
+        .btnDivs {
+            width: 500px;
+            height: 50px;
+            color: burlywood;
+            margin: auto;
+            font-size: 40px;
+            padding: 7px;
+            text-align: center;
+        }
+
+        .btns {
+            background-color: rgb(72, 187, 187);
+        }
+
+        #mainDiv3 {
+            background-color: forestgreen;
+
+        }
+
+        #mainDiv4 {
+            width: 400px;
+            height: 300px;
+            background-color: transparent;
+            margin: auto;
+        }
+
+        #img4 {
+            height: 200px;
+            width: 300px;
+        }
+
+        .inpDivs {
+            margin: auto;
+            width: fit-content;
+        }
+
+        #mainDiv5 {
+            font-size: 100px;
+            width: 550px;
+            height: 130px;
+        }
+
+        .btns {
+            font-size: 25px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: 150px;
+        }
+
+        .timer {
+            width: 95px;
+            display: inline-block;
+            margin: auto;
+        }
+        progress{
+            width: inherit;
+        }
+        #mainDiv6{
+            width: 550px;
+        }
+        table ,td,tr{
+            border: solid 1px black;
+            border-radius: 1px;
+        }
+        td{
+            width: 6px;
+            height: 4px;
+        }
+        #mainDiv8{
+            background-color: transparent;
+            width: fit-content;
+            height: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- -----------------EX1------------------  -->
+    <div class="headerDiv">
+        <h1> exercise number 1 </h1>
+    </div>
+    <div id="mainDiv1" class="mainDivs"></div>
+    <br>
+    <hr>
+    <!-- -----------------EX2------------------  -->
+    <div class="headerDiv">
+        <h1> exercise number 2 </h1>
+    </div>
+    <div id="mainDiv2" class="mainDivs">0</div>
+    <div class="btnDivs"><button id="btn2" class="btns">Click Here</button></div>
+    <br>
+    <hr>
+    <!-- -----------------EX3------------------  -->
+    <div class="headerDiv">
+        <h1> exercise number 3 </h1>
+    </div>
+    <div id="mainDiv3" class="mainDivs"></div>
+    <br>
+    <hr>
+    <!-- -----------------EX4------------------  -->
+    <div class="headerDiv">
+        <h1> exercise number 4 </h1>
+    </div>
+    <div id="mainDiv4" class="mainDivs"><img id="img4" src="" alt="Import image"> </div><br>
+    <div class="inpDivs"><input id="inp4" class="inps" type="url" ></div>
+    <div class="btnDivs"><button id="btn4" class="btns">Click Here</button></div>
+    <br>
+    <hr>
+    <!-- -----------------EX5------------------  -->
+    <div class="headerDiv">
+        <h1> exercise number 5 </h1>
+    </div>
+    <div id="mainDiv5" class="mainDivs">
+        <div class="timer" id="hourSpan">00</div> :
+        <div class="timer" id="minuteSpan">00</div> :
+        <div class="timer" id="secondSpan">00</div> .
+        <div class="timer" id="miliSpan">00</div>
+    </div>
+    <br>
+    <div class="btnDivs">
+        <button id="startBtn" class="btns">START</button>
+        <button id="pauseBtn" class="btns">PAUSE</button>
+        <button id="resetBtn" class="btns">RESET</button>
+    </div>
+    <br>
+    <hr>
+    <!-- -----------------EX6------------------  -->
+    <div class="headerDiv">
+        <h1> exercise number 6 </h1>
+    </div>
+    <div id="mainDiv6" class="mainDivs"><progress value="0" max="100" min="0" ></progress></div>
+    <div class="btnDivs">
+        <button id="startBtnProgress" class="btns">START</button>
+        <button id="pauseBtnProgress" class="btns">PAUSE</button>
+        <button id="resetBtnProgress" class="btns">RESET</button>
+    </div>
+    <br>
+    <hr>
+    <!-- -----------------EX7------------------  -->
+    <div class="headerDiv">
+        <h1> exercise number 7 </h1>
+    </div>
+    <div class="inpDivs"><input id="inp7" class="inps" type="number"></div>
+    <div class="btnDivs"><button id="myBtn" class="btns">START</button></div>
+    <div id="mainDiv7" ></div>
+    <br>
+    <hr>
+
+    <!-- -----------------EX8------------------  -->
+    <div class="headerDiv">
+        <h1> exercise number 8 </h1>
+    </div>
+    <div class="inpDivs">row : <input id="inp8-1" class="inps" type="number"><br>column : <input id="inp8-2" class="inps" type="number"></div>
+    <div class="btnDivs"><button id="myBtn8" class="btns">CREATE</button></div>
+    <div id="mainDiv8" class="mainDivs"></div>
+    <br>
+    <hr>
+
+    
+</body>
+<script>
+    //-----------------EX1------------------ 
+    const mainDiv1 = document.getElementById('mainDiv1');
+    mainDiv1.addEventListener("click", () => { mainDiv1.style.backgroundColor = 'green' });
+    //-----------------EX2------------------ 
+    let i = 0;
+    const mainDiv2 = document.getElementById('mainDiv2');
+    const btn2 = document.getElementById('btn2');
+    btn2.addEventListener("click", () => {
+        mainDiv2.textContent = ++i
+    });
+    //-----------------EX3------------------ 
+    const mainDiv3 = document.getElementById('mainDiv3');
+    mainDiv3.addEventListener("mouseover", () => { mainDiv3.style.backgroundColor = 'dodgerblue' });
+    mainDiv3.addEventListener("mouseout", () => { mainDiv3.style.backgroundColor = 'forestgreen' });
+    //-----------------EX4------------------    
+    const mainDiv4 = document.getElementById('mainDiv4');
+    const inp4 = document.getElementById("inp4");
+    const btn4 = document.getElementById('btn4');
+    const img4 = document.getElementById('img4');
+    btn4.addEventListener("click", () => {
+        img4.src = `${inp4.value}`;
+    });
+    img4.addEventListener("mouseover", () => {
+        img4.style.width = "390px";
+        img4.style.height = "260px"
+    })
+    img4.addEventListener("mouseout", () => {
+        img4.style.width = "300px";
+        img4.style.height = "200px"
+    })
+    //-----------------EX5------------------    
+    const hourSpan = document.getElementById(`hourSpan`);
+    const minuteSpan = document.getElementById(`minuteSpan`);
+    const secondSpan = document.getElementById(`secondSpan`);
+    const miliSpan = document.getElementById(`miliSpan`);
+    const startBtn = document.getElementById(`startBtn`);
+    const pauseBtn = document.getElementById(`pauseBtn`);
+    const resetBtn = document.getElementById(`resetBtn`);
+    let secondNum = parseInt(secondSpan.innerText);
+    let minuteNum = parseInt(minuteSpan.innerText);
+    let hourNum = parseInt(hourSpan.innerText);
+    let miliNum = parseInt(miliSpan.innerText);
+    let setTime = () => {
+        ++miliNum;
+        if (miliNum == 100) {
+            miliNum = 0;
+            ++secondNum;
+        }
+        if (secondNum == 60) {
+            secondNum = 0;
+            ++minuteNum;
+        }
+        if (minuteNum == 60) {
+            ++hourNum;
+            minuteNum = 0;
+        }
+        if (miliNum <= 9)
+            miliSpan.innerText = `0` + miliNum;
+        else
+            miliSpan.innerText = miliNum;
+
+        if (secondNum <= 9)
+            secondSpan.innerText = `0` + secondNum;
+        else
+            secondSpan.innerText = secondNum;
+        
+        if (minuteNum <= 9)
+            minuteSpan.innerText = `0` + minuteNum;
+        else
+            minuteSpan.innerText = minuteNum;
+
+        if (hourNum <= 9)
+            hourSpan.innerText = `0` + hourNum;
+        else
+            hourSpan.innerText = hourNum;
+    }
+    let isPlayed=false;
+    let myInterval;
+    let interval = () => {
+        if(!isPlayed){
+        isPlayed=true;
+        myInterval = setInterval(setTime, 10);
+        }
+    }
+    let clear = () => {
+        clearInterval(myInterval);
+        isPlayed=false;
+    }
+    startBtn.addEventListener("click", interval);
+    pauseBtn.addEventListener("click", clear);
+    resetBtn.addEventListener("click", () => {
+        miliNum = 0;
+        secondNum = 0;
+        minuteNum = 0;
+        hourNum = 0;
+        miliSpan.innerText = `00`;
+        secondSpan.innerText = `00`;
+        minuteSpan.innerText = `00`;
+        hourSpan.innerText = `00`;
+        clear();
+    });
+    //-----------------EX6------------------ 
+    const progress6 = document.getElementsByTagName(`progress`)[0];
+    const startBtnProgress=document.getElementById(`startBtnProgress`);
+    const pauseBtnProgress=document.getElementById(`pauseBtnProgress`);
+    const resetBtnProgress=document.getElementById(`resetBtnProgress`);
+    let isplayed2=false;
+    let myInterval2;
+    let isPlayed2=false;
+    let progressBar= ()=>{
+        progress6.value+=2/100;
+    }
+    let interval2 = () => {
+        if(!isPlayed2){
+        isPlayed2=true;
+        myInterval2 = setInterval(progressBar, 10);
+        }
+    }
+    let clear2 = () => {
+        clearInterval(myInterval2);
+        isPlayed2=false;
+    }
+    let resetProgress=()=>{
+        clear2();
+        progress6.value=0;
+    }
+    startBtnProgress.addEventListener("click", interval2);
+    pauseBtnProgress.addEventListener("click", clear2);
+    resetBtnProgress.addEventListener("click",resetProgress)
+    //-----------------EX7------------------ 
+    const mainDiv7=document.getElementById(`mainDiv7`);
+    const inp7=document.getElementById(`inp7`);
+    const myBtn=document.getElementById(`myBtn`);
+    let l;
+    let number=1;
+    myBtn.addEventListener("click",()=>{
+    l=parseInt(inp7.value);
+    for (let i=0;i<l;++i){
+        mainDiv7.innerHTML+=`<div style="display: inline-block;margin:20px; background-color: yellow ; width: 300px ; height: 400px;">${number}</div>`;
+        ++number;
+    }
+    });
+    //-----------------EX8------------------ 
+    const mainDiv8=document.getElementById(`mainDiv8`);
+    const inp81=document.getElementById(`inp8-1`);
+    const inp82=document.getElementById(`inp8-2`);
+    const myBtn8=document.getElementById(`myBtn8`);
+    myBtn8.addEventListener("click",()=>{
+        let row=inp81.value;
+        let column=inp82.value;
+        let str=`<table>`;
+        for(let i=0;i<row;++i){
+            str+=`<tr>`;
+            for(let j=0;j<column;++j){
+                str+=`<td></td>`;
+            }
+            str+=`</tr>`;
+        }
+        str+=`</table>`;
+        mainDiv8.innerHTML=str;
+    });
+    //-----------------EX9------------------ 
+</script>
+
+</html>
